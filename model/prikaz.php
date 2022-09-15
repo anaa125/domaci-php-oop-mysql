@@ -55,25 +55,25 @@ class Prikaz{
         return $conn->query($query);
     }
 
-    public function deleteAll(mysqli $conn)
+     #update
+   /* public function update1($id, mysqli $conn)
     {
-        $query = "DELETE FROM prikaz";
+        $query = "UPDATE projekcije set naziv = $this->naziv,sala = $this->sala,trajanje = $this->trajanje,datum = $this->datum,korisnikID=$this->korisnikID WHERE id=$id";
         return $conn->query($query);
+    }
+    */
+
+    public function update(mysqli $conn){
+        $upit = "UPDATE prikaz set naziv = $this->naziv,sala = $this->sala,trajanje = $this->trajanje,datum = $this->datum,korisnikID=$this->korisnikID WHERE id=$this->id";
+        return $conn->query($upit);
     }
 
-    #update
-    public function update($id, mysqli $conn)
-    {
-        $query = "UPDATE prikaz set naziv = $this->naziv,sala = $this->sala,trajanje = $this->trajanje,datum = $this->datum,korisnikID=$this->korisnikID WHERE id=$id";
-        return $conn->query($query);
-    }
 
     #insert
     public static function add(Prikaz $Prikaz, mysqli $conn)
     {
-        $query = "INSERT INTO prikaz(naziv, sala, trajanje, datum, korisnikID) VALUES('$Prikaz->naziv','$Prikaz->sala','$Prikaz->trajanje','$Prikaz->datum''$Prikaz->korisnikID')";
+        $query = "INSERT INTO prikaz(naziv, sala, trajanje, datum, korisnikID) VALUES('$Prikaz->naziv','$Prikaz->sala','$Prikaz->trajanje','$Prikaz->datum','$Prikaz->korisnikID')";
         return $conn->query($query);
     }
 }
-
 ?>
