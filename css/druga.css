@@ -1,17 +1,14 @@
 * {
-
-    font-family: 'Galada';
-
+    font-family: "Galada";
   }
-
-body{
+  
+  body {
     background-image: url("../img/jdp2.jpg");
-     background-size: 100% 100%; 
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-attachment: fixed; 
-}
-#naslov {
-
+    background-attachment: fixed;
+  }
+  #naslov {
     font-size: 4.5vw;
     text-align: center;
     color: bisque;
@@ -19,30 +16,28 @@ body{
     margin-top: 0px;
     margin-bottom: 5px;
   }
-.zaglavlje{
+  .zaglavlje {
     background-color: rgb(211, 187, 158);
     opacity: 90%;
-  height: 100px;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-
-}
-.zaglavlje ul {
+    height: 100px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .zaglavlje ul {
     text-align: center;
   }
-
-
-  .zaglavlje ul li button {
+  
+  .zaglavlje button {
     background-color: bisque;
-    font-size: 20px;
+    font-size: 25px;
     border-radius: 10px;
-    text-transform: 15px 40px;
-
-
+    padding: 15px 40px;
+    text-transform: uppercase;
   }
   button:hover {
     opacity: 0.8;
-
+  
     border: rgb(145, 121, 93);
-}
+  }
