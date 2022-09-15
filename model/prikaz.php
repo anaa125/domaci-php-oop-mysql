@@ -24,7 +24,7 @@ class Prikaz{
     public static function getAll(mysqli $conn)
     {
         //pravimo query 
-        $query = "SELECT * FROM prikaz";
+        $query = "SELECT * FROM prikazi";
         //konekcija koja treba da izvrsi query funkciju 
         return $conn->query($query);
     }
@@ -33,7 +33,7 @@ class Prikaz{
 
     public static function getById($id, mysqli $conn){
 
-        $query = "SELECT * FROM prikaz WHERE id=$id";
+        $query = "SELECT * FROM prikazi WHERE id=$id";
          // myObj je niz koji je prazan
         $myObj = array();
         if($msqlObj = $conn->query($query)){
@@ -51,7 +51,7 @@ class Prikaz{
 
     public function deleteById(mysqli $conn)
     {
-        $query = "DELETE FROM prikaz WHERE id=$this->id";
+        $query = "DELETE FROM prikazi WHERE id=$this->id";
         return $conn->query($query);
     }
 
@@ -64,7 +64,7 @@ class Prikaz{
     */
 
     public function update(mysqli $conn){
-        $upit = "UPDATE prikaz set naziv = $this->naziv,sala = $this->sala,trajanje = $this->trajanje,datum = $this->datum,korisnikID=$this->korisnikID WHERE id=$this->id";
+        $upit = "UPDATE prikazi set naziv = $noviPrikaz->naziv,sala = $noviPrikaz->sala,trajanje = $noviPrikaz->trajanje,datum = $noviPrikaz->datum,korisnikID=$noviPrikaz->korisnikID WHERE id=$noviPrikaz->id";
         return $conn->query($upit);
     }
 
@@ -72,7 +72,7 @@ class Prikaz{
     #insert
     public static function add(Prikaz $Prikaz, mysqli $conn)
     {
-        $query = "INSERT INTO prikaz(naziv, sala, trajanje, datum, korisnikID) VALUES('$Prikaz->naziv','$Prikaz->sala','$Prikaz->trajanje','$Prikaz->datum','$Prikaz->korisnikID')";
+        $query = "INSERT INTO prikazi(naziv, sala, trajanje, datum, korisnikID) VALUES('$Prikaz->naziv','$Prikaz->sala','$Prikaz->trajanje','$Prikaz->datum','$Prikaz->korisnikID')";
         return $conn->query($query);
     }
 }
