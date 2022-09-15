@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2022 at 03:04 PM
+-- Generation Time: Sep 15, 2022 at 03:04 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -67,10 +67,10 @@ CREATE TABLE `prikaz` (
 
 INSERT INTO `prikaz` (`id`, `naziv`, `sala`, `trajanje`, `datum`, `korisnikID`) VALUES
 (1, 'LORENCAČO', 'sala 1', 97, '2022-09-22', 1),
-(2, 'ALISA U ZEMLJI STRAHOVA', 'sala 2', 115, '2022-09-30', 0),
-(3, 'ŠIROKA ZEMLJA ', 'sala 2', 97, '2022-10-04', 5),
-(5, 'ZAGREB-BEOGRAD VIA SARAJEVO', 'sala 1', 96, '2022-09-27', 3),
-(6, 'UJKA VANJA', 'sala 2', 114, '2022-09-24', 5);
+(2, 'ALISA U ZEMLJI STRAHOVA', 'sala 2', 115, '2022-09-30', 3),
+(6, 'ŠIROKA ZEMLJA ', 'sala 2', 97, '2022-10-04', 5),
+(7, 'ZAGREB-BEOGRAD VIA SARAJEVO', 'sala 1', 96, '2022-09-27', 3),
+(8, 'UJKA VANJA', 'sala 2', 114, '2022-09-24', 5);
 
 --
 -- Indexes for dumped tables
@@ -112,7 +112,7 @@ ALTER TABLE `prikaz`
 -- Constraints for table `projekcije`
 --
 ALTER TABLE `prikaz`
-  ADD CONSTRAINT `prikaz_ibfk_1` FOREIGN KEY (`korisnikID`) REFERENCES `korisnik` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `prikaz_ibfk_1` FOREIGN KEY (`korisnikID`) REFERENCES `korisnik` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
