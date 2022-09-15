@@ -58,13 +58,15 @@ class Prikaz{
      #update
    /* public function update1($id, mysqli $conn)
     {
-        $query = "UPDATE projekcije set naziv = $this->naziv,sala = $this->sala,trajanje = $this->trajanje,datum = $this->datum,korisnikID=$this->korisnikID WHERE id=$id";
+        $query = "UPDATE prikaza set naziv = $this->naziv,sala = $this->sala,trajanje = $this->trajanje,datum = $this->datum,korisnikID=$this->korisnikID WHERE id=$id";
         return $conn->query($query);
     }
     */
 
-    public function update(mysqli $conn){
-        $upit = "UPDATE prikazi set naziv = $noviPrikaz->naziv,sala = $noviPrikaz->sala,trajanje = $noviPrikaz->trajanje,datum = $noviPrikaz->datum,korisnikID=$noviPrikaz->korisnikID WHERE id=$noviPrikaz->id";
+    public function update(Prikaz $noviPrikaz,mysqli $conn){
+        $upit = "UPDATE prikazi set naziv = $noviPrikaz->naziv,sala = $noviPrikaz->sala,
+        trajanje = $noviPrikaz->trajanje,datum = $noviPrikaz->datum,korisnikID=$noviPrikaz->korisnikID 
+        WHERE id=$noviPrikaz->id";
         return $conn->query($upit);
     }
 
