@@ -31,21 +31,13 @@ body{
 .zaglavlje ul {
     text-align: center;
   }
-.zaglavlje ul li {
-    display: inline-block;
-    line-height: 90px;
-    margin-left: 15px ;
-    margin-top: 10px;
-    margin-right: 15px ;
-  }
 
 
   .zaglavlje ul li button {
     background-color: bisque;
-    font-size: 25px;
-    padding: 15px 40px;
+    font-size: 20px;
     border-radius: 10px;
-    text-transform: uppercase;
+    text-transform: 15px 40px;
 
 
   }
