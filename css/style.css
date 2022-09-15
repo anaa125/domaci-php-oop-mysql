@@ -1,0 +1,62 @@
+* {
+
+    font-family: 'Galada';
+
+  }
+
+body{
+    background-image: url("../img/jdp1.jpg");
+     background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+}
+
+#naslov {
+
+    font-size: 4.5vw;
+    text-align: center;
+    color: bisque;
+    text-shadow: 5px 5px 0px rgb(218, 94, 105);
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+
+.forma{
+
+    background-color: rgb(240, 210, 171);
+    margin-top: 140px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+
+    border: 5px solid rgb(219, 192, 156);
+    border-bottom-left-radius: 25px;
+  padding: 10px;
+}
+#ime, #sifra {
+    font-size: 30px;
+
+}
+#ime{ margin-right: 50px;}
+
+#sifra{ margin-right: 138px;}
+
+.polje{
+    text-align: center; 
+    font-size: 15px;
+    width: 40%;
+
+}
+#dugme{
+    font-family: 'Brush Script MT', cursive;
+    font-size: 20px;
+    margin-left: 350px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+
+
+}
+ button:hover {
+        opacity: 0.8;
+        border: rgb(145, 121, 93);
+    }  
