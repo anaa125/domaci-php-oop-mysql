@@ -15,7 +15,7 @@ body{
 
     font-size: 4.5vw;
     text-align: center;
-    color: bisque;
+    color: rgb(249, 198, 135);
     text-shadow: 5px 5px 0px rgb(218, 94, 105);
     margin-top: 0px;
     margin-bottom: 5px;
@@ -23,13 +23,13 @@ body{
 
 .forma{
 
-    background-color: rgb(240, 210, 171);
+    background-color: rgb(249, 198, 135);
     margin-top: 140px;
     margin-left: auto;
     margin-right: auto;
     width: 40%;
 
-    border: 5px solid rgb(219, 192, 156);
+    border: 5px solid rgb(249, 198, 135);
     border-bottom-left-radius: 25px;
   padding: 10px;
 }
@@ -58,5 +58,5 @@ body{
 }
  button:hover {
         opacity: 0.8;
-        border: rgb(145, 121, 93);
+        border: rgb(249, 198, 135);
     }  
