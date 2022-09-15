@@ -104,6 +104,15 @@ ALTER TABLE `korisnik`
 --
 ALTER TABLE `prikaz`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `projekcije`
+--
+ALTER TABLE `prikaz`
+  ADD CONSTRAINT `prikaz_ibfk_1` FOREIGN KEY (`korisnikID`) REFERENCES `korisnik` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
