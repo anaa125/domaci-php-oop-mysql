@@ -20,16 +20,12 @@ SET time_zone = "+00:00";
 --
 -- Database: `domaci1`
 --
-CREATE DATABASE IF NOT EXISTS `domaci1` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `domaci1`;
 
--- --------------------------------------------------------
 
 --
 -- Table structure for table `korisnik`
 --
 
-DROP TABLE IF EXISTS `korisnik`;
 CREATE TABLE `korisnik` (
   `id` int(11) NOT NULL,
   `korisnickoIme` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -42,30 +38,29 @@ CREATE TABLE `korisnik` (
 
 INSERT INTO `korisnik` (`id`, `korisnickoIme`, `lozinka`) VALUES
 (1, 'admin', 'admin'),
-(2, 'radnik', 'radnik'),
-(3, 'ana', 'ana');
+(3, 'radnik', 'radnik'),
+(5, 'ana', 'ana');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prikaz`
+-- Table structure for table `prikazi`
 --
 
-DROP TABLE IF EXISTS `prikaz`;
-CREATE TABLE `prikaz` (
+CREATE TABLE `prikazi` (
   `id` int(11) NOT NULL,
-  `naziv` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `sala` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `naziv` varchar(255)  NOT NULL,
+  `sala` varchar(255)  NOT NULL,
   `trajanje` int(11) NOT NULL,
   `datum` date NOT NULL DEFAULT current_timestamp(),
   `korisnikID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `prikaz`
+-- Dumping data for table `prikazi`
 --
 
-INSERT INTO `prikaz` (`id`, `naziv`, `sala`, `trajanje`, `datum`, `korisnikID`) VALUES
+INSERT INTO `prikazi` (`id`, `naziv`, `sala`, `trajanje`, `datum`, `korisnikID`) VALUES
 (1, 'LORENCAČO', 'sala 1', 97, '2022-09-22', 1),
 (2, 'ALISA U ZEMLJI STRAHOVA', 'sala 2', 115, '2022-09-30', 3),
 (6, 'ŠIROKA ZEMLJA ', 'sala 2', 97, '2022-10-04', 5),
@@ -73,9 +68,8 @@ INSERT INTO `prikaz` (`id`, `naziv`, `sala`, `trajanje`, `datum`, `korisnikID`) 
 (8, 'UJKA VANJA', 'sala 2', 114, '2022-09-24', 5);
 
 --
--- Indexes for dumped tables
+-- -- Indexes for dumped tables
 --
-
 --
 -- Indexes for table `korisnik`
 --
@@ -83,11 +77,11 @@ ALTER TABLE `korisnik`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `prikaz`
+-- Indexes for table `prikazi`
 --
-ALTER TABLE `prikaz`
+ALTER TABLE `prikazi`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `prikaz_ibfk_1` (`korisnikID`);
+  ADD KEY `prikazi_ibfk_1` (`korisnikID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -100,19 +94,20 @@ ALTER TABLE `korisnik`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `prikaz`
+-- AUTO_INCREMENT for table `prikazi`
 --
-ALTER TABLE `prikaz`
+ALTER TABLE `prikazi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `projekcije`
+-- Constraints for table `prikazi`
 --
-ALTER TABLE `prikaz`
-  ADD CONSTRAINT `prikaz_ibfk_1` FOREIGN KEY (`korisnikID`) REFERENCES `korisnik` (`id`);
+ALTER TABLE `prikazi`
+  ADD CONSTRAINT `prikazi_ibfk_1` FOREIGN KEY (`korisnikID`) REFERENCES `korisnik` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

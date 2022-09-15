@@ -21,7 +21,7 @@ if(isset($_POST['korisnickoIme']) && isset($_POST['lozinka'])){
         console.log( "Uspešno ste se prijavili");
         </script> `;
         //postavili smo sesiju koja se ovako zove 
-        $_SESSION['user_id'] = $korisnik->id;
+        $_SESSION['korisnik_id'] = $korisnik->id;
         //postavljamo lokaciju na home.php
         header('Location: home.php');
         //zelimo da izadjemo sa ove stranice 

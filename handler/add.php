@@ -1,7 +1,7 @@
 <?php
 
 require "../dbBroker.php";
-require "../model/prikaz.php";
+require "../model/prikazi.php";
 
 if(isset($_POST['naziv']) && isset($_POST['sala']) 
 && isset($_POST['trajanje']) && isset($_POST['korisnikID'])&& isset($_POST['datum'])){

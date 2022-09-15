@@ -1,7 +1,7 @@
 <?php
 
 require "../dbBroker.php";
-require "../model/prikaz.php";
+require "../model/prikazi.php";
 
 if(isset($_POST['id'])){
     $obj = new Prikaz($_POST['id']);
