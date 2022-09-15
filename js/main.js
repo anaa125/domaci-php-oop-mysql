@@ -54,9 +54,10 @@ $('#btn-obrisi').click(function(){
 ///////////////////////////////////////////////////////////////////
 // dugme koje je na glavnoj formi i otvara dijalog za izmenu
 
-$('#btn-izmeni').click(function () {
+$('#dugme-izmeni').click(function () {
+
     const checked = $('input[name=checked-donut]:checked');
-    //pristupa informacijama te konkretne forme i popunjava dijalog
+
     request = $.ajax({
         url: 'handler/get.php',
         type: 'post',
@@ -64,68 +65,73 @@ $('#btn-izmeni').click(function () {
         dataType: 'json'
     });
 
-
     request.done(function (response, textStatus, jqXHR) {
-       console.log('Popunjena forma');
-        $('#naziv').val(response[0]['naziv']);
-        console.log(response[0]['naziv']);
+        console.log('Popunjena forma');
+
+        $('#naziv').val(response[0]['naziv'].trim());
+        console.log(response[0]['naziv'].trim());
 
         $('#sala').val(response[0]['sala'].trim());
         console.log(response[0]['sala'].trim());
-
         $('#trajanje').val(response[0]['trajanje'].trim());
         console.log(response[0]['trajanje'].trim());
-
-        $('#korisnikID').val(response[0]['korisnikID'].trim());
-        console.log(response[0]['korisnikID'].trim());
 
         $('#datum').val(response[0]['datum'].trim());
         console.log(response[0]['datum'].trim());
 
+        $('#korisnikID').val(response[0]['korisnikID'].trim());
+        console.log(response[0]['korisnikID'].trim());
         $('#id').val(checked.val());
-
+  
         console.log(response);
-
-
     });
-
-   request.fail(function (jqXHR, textStatus, errorThrown) {
-       console.error('The following error occurred: ' + textStatus, errorThrown);
-   });
-
-});
-
-//dugme za slanje UPDATE zahteva nakon popunjene forme
-$('#izmeniForm').submit(function () {
+  
+    request.fail(function (jqXHR, textStatus, errorThrown) {
+        console.error('The following error occurred: ' + textStatus, errorThrown);
+    });
+  
+  });
+  //////////////////////////////////////////
+  
+  $('#izmeniForm').submit(function () {
     event.preventDefault();
-    console.log("Izmene prikaza predstava");
+    console.log("Nove vrednosti");
+    ////////////////////////////////
     const $form = $(this);
-    const $inputs = $form.find('input, select, button, textarea');
+    const $inputs = $form.find('input, select, button,textarea');
     const serializedData = $form.serialize();
     console.log(serializedData);
     $inputs.prop('disabled', true);
 
-    // kreirati request za UPDATE handler
-
-    request.done(function (response, textStatus, jqXHR) {
-
-
-        if (response === 'Success') {
-            console.log('Prikaz predstava je izmenjen');
-            location.reload(true);
-            //$('#izmeniForm').reset;
-        }
-        else console.log('Prikaz predstave nije izmenjen ' + response);
-        console.log(response);
+    request = $.ajax({
+        url: 'handler/update.php',
+        type: 'post',
+        data: serializedData
     });
 
+    request.done(function (response, textStatus, jqXHR) {
+  
+  
+        if (response === 'Success') {
+            console.log('Prikaz predstave je izmenjen');
+            location.reload(true);
+            $('#izmeniForm').reset;
+        }
+        else console.log('Prikaz predstave nije izmenjen' + response);
+        console.log(response);
+    });
+  
     request.fail(function (jqXHR, textStatus, errorThrown) {
         console.error('The following error occurred: ' + textStatus, errorThrown);
     });
 
 
-    //$('#izmeniModal').modal('hide');
-});
+    $('#izmeniModal').modal('hide'); 
+  });
+
+
+
+///////////////////////////////////////////////  
 
 $('#btn-pretraga').click(function () {
 
@@ -142,7 +148,7 @@ $('#btn-pretraga').click(function () {
     }
 });
 
-$('#btn').click(function () {
+$('#btnPrikaz').click(function () {
     $('#pregled').toggle();
 });
 
@@ -150,29 +156,7 @@ $('#btnDodaj').submit(function () {
     $('#myModal').modal('toggle');
     return false;
 });
-
 $('#btnIzmeni').submit(function () {
     $('#myModal').modal('toggle');
     return false;
 });
-
-/*  $('#pretraga').on("keyup", function() {
-    let txtValue = $(this).val();
-    let filter = txtValue.toLowerCase();
-    let red = $("#tabela")[0].getElementsByTagName("tr");
-    for(let i=0;i<red.length;i++){
-        let vidljiv=false;
-        let td = red[i].getElementsByTagName("td")[1];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toLowerCase().indexOf(filter) > -1) {
-                vidljiv=true;
-            }
-        }
-        if(vidljiv){
-            red[i].style.display = "";
-        }else{
-            red[i].style.display = "none";
-        }
-    }
-});*/
